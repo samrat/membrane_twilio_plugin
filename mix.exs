@@ -38,8 +38,8 @@ defmodule Membrane.Twilio.Mixfile do
   defp deps do
     [
       {:membrane_core, "~> 1.0"},
-      {:membrane_g711_plugin,
-       github: "membraneframework/membrane_g711_ffmpeg_plugin", tag: "mulaw"},
+      {:membrane_g711_ffmpeg_plugin,
+       github: "membraneframework/membrane_g711_ffmpeg_plugin", branch: "mulaw"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:dialyxir, ">= 0.0.0", only: :dev, runtime: false},
       {:credo, ">= 0.0.0", only: :dev, runtime: false}
