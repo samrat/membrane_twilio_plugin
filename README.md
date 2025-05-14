@@ -4,9 +4,6 @@
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `membrane_twilio_plugin` to your list of dependencies in `mix.exs`:
-
 ```elixir
 def deps do
   [
@@ -16,6 +13,8 @@ end
 ```
 
 ## Usage (TODO: elaborate)
+
+For a complete example, see `examples/echo.exs`.
 
 - Create your Membrane pipeline using `Membrane.Twilio.Endpoint`
 - Add WebSocket route that forwards data from Twilio to the pipeline, and vice-versa
