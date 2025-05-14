@@ -1,7 +1,7 @@
 defmodule Membrane.Twilio.Endpoint do
   use Membrane.Endpoint
 
-  require Logger
+  require Membrane.Logger
 
   @stream_format %Membrane.G711{encoding: :PCMU}
 
@@ -32,7 +32,6 @@ defmodule Membrane.Twilio.Endpoint do
 
   @impl true
   def handle_playing(_ctx, state) do
-    Membrane.Logger.info("Playing")
     {[stream_format: {:output, @stream_format}], state}
   end
 
@@ -43,7 +42,7 @@ defmodule Membrane.Twilio.Endpoint do
 
     if is_silent do
       # Audio is silent, do not send a message
-      Logger.debug("Received silent audio buffer, skipping Twilio message.")
+      Membrane.Logger.debug("Received silent audio buffer, skipping Twilio message.")
       {[], state}
     else
       # Audio is not silent
@@ -74,16 +73,16 @@ defmodule Membrane.Twilio.Endpoint do
           {actions, state}
         else
           error ->
-            Logger.error("Failed to decode base64 payload: #{inspect(error)}")
+            Membrane.Logger.error("Failed to decode base64 payload: #{inspect(error)}")
             {[], state}
         end
 
       {:ok, data} ->
-        Logger.info("Received Twilio event: #{inspect(data)}")
+        Membrane.Logger.debug("Received Twilio event: #{inspect(data)}")
         {[], state}
 
       {:error, _} ->
-        Logger.error("Failed to decode message: #{text}")
+        Membrane.Logger.error("Failed to decode message: #{text}")
         {[], state}
     end
   end
@@ -97,7 +96,7 @@ defmodule Membrane.Twilio.Endpoint do
         "streamSid" => state.stream_sid
       })
 
-    Logger.debug("Sending close message: #{message}")
+    Membrane.Logger.debug("Sending close message: #{message}")
 
     {[], state}
   end
