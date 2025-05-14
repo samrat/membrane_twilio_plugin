@@ -2,6 +2,10 @@
 
 A plugin for the [Membrane Framework](https://membrane.stream) that enables integration with [Twilio Media Streams](https://www.twilio.com/docs/voice/twiml/stream). It allows real-time processing of audio from Twilio phone calls using WebSockets, supporting bidirectional audio communication in G711 μ-law format.
 
+## Demo Video
+
+[![Demo: Membrane Twilio Plugin in action](https://img.youtube.com/vi/4dhl4P-kS9A/0.jpg)](https://www.youtube.com/watch?v=4dhl4P-kS9A)
+
 ## Installation
 
 ```elixir
